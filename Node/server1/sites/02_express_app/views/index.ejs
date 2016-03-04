@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, world</title>
+  </head>
+
+  <body>
+      <h1>Users:</h1>
+
+	<% if(periods[0].users.length > 0) { %>
+
+	<ul>
+	<% for(var i in periods[0].users) { %>
+		<li><a href="https://github.com/<%= periods[0].users[i] %>"><%= periods[0].users[i] %></a></li>
+	<% } %>
+	</ul>
+
+	<% } else {  %>
+
+	<p>Sorry! There are no users yet </p>
+
+	<% } %>
+
+  </body>
+</html>

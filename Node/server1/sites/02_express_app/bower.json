@@ -1,0 +1,22 @@
+{
+  "name": "02_express_app",
+  "description": "testing express",
+  "main": "index.js",
+  "authors": [
+    "ClintonKing"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
+  }
+}

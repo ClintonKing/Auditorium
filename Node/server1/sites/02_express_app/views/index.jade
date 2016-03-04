@@ -1,0 +1,16 @@
+doctype html
+html(lang='en')
+	head
+		title Jaded
+		link( rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+		link( rel="stylesheet" href="css/styles.css")
+		scripts( src="/bower_components/jquery/dist/jquery.min.css")
+	body
+		h1 Users:
+
+		if periods[0].users.length > 0
+			for user in periods[0].users
+					li
+						a(href="http://github.com/#{user}" target="_blank")= user
+		else
+			p No user data available

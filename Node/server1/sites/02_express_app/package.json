@@ -1,0 +1,19 @@
+{
+  "name": "02_express_app",
+  "version": "1.0.0",
+  "description": "testing express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongodb": "^2.1.7",
+	"bower": "^1.7.7"
+  }
+}
