@@ -1,0 +1,19 @@
+
+extends ../../public/templates/base.jade
+
+block title
+	title Recipes
+
+block content
+	h1 Recipes List
+	
+	if recipes.length > 0
+		for recipe in recipes
+				li
+					p
+						a(href="/recipes/#{recipe.name}") #{recipe.name}
+	else
+		p No data available.
+	
+	
+	a(href="/recipes/form") Add a recipe
