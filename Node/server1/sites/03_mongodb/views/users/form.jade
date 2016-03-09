@@ -1,0 +1,20 @@
+
+extends ../../public/templates/base.jade
+
+block title
+  title Users
+
+block content
+  h1 New User
+  form(action="/users" method="POST")
+    p
+      label Full Name
+      input(type="text" value="" name="name")
+    p
+      label Github User Name
+      input(type="text" value="" name="userName")
+    p
+      label Github link
+      input(type="text" value="" name="link")
+    
+    button Create User

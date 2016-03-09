@@ -1,0 +1,19 @@
+
+extends ../../public/templates/base.jade
+
+block title
+	title Users
+
+block content
+	h1 User List
+	
+	if users.length > 0
+		for user in users
+				li
+					p
+						a(href="/users/#{user.userName}") #{user.name}
+	else
+		p No user data available
+	
+	
+	a(href="/users/form") Create New User

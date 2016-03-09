@@ -1,0 +1,23 @@
+
+extends ../../public/templates/base.jade
+
+block title
+  title #{user.name}
+  
+block content
+  h3 #{user.name}
+  p
+    a(href="/users/delete/#{user.userName}") Delete
+    
+  form(action="/users/#{user.userName}" method="POST")
+    p
+      label Full Name
+      input(type="text" id="name" name="name" value="#{user.name}")
+    p
+      label Github User Name
+      input(type="text" id="userName" name="userName" value="#{user.userName}")
+    p
+      label Github Profile Link
+      input(type="text" id="link" name="link" value="#{user.link}")
+
+    button Update

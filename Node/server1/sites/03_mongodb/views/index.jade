@@ -1,11 +1,14 @@
-doctype html
-html
-	head
-		title=mongoTest
-		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
-		script(src="/bower_components/jquery/dist/jquery.min.js")
-		script(src="/bower_components/AngularJS/src/Angular.js")
-	body
-		h1 This is Homepage
-		.row
-			p Lorem ipsum etc
+//dynamic index page
+
+extends ../public/templates/base.jade
+
+block title
+  title Home
+  
+block content
+  div.row
+    div.col-md-12.text-center
+      h1 This is the Homepage
+  div.row
+    div.col-md-12.text-center
+      h3 Lorem Ipsum...
