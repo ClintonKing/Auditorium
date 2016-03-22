@@ -1,0 +1,39 @@
+.footer{
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid #e7e7e7;
+  width: 100%;
+  color: #777;
+}
+
+.incBlock{
+  /*height: 100%;
+  width: 100%;*/
+  padding: 20px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  min-height: 200px;
+}
+
+.incText{
+  font-family: sans-serif;
+  opacity: 0;
+  font-size: 1.6em;
+  color: #ffffff;
+}
+
+.incText:hover{
+  opacity: 1;
+}
+
+
+/*MAP CSS*/
+
+#map{
+  height: 350px;
+  margin: 30px;
+}

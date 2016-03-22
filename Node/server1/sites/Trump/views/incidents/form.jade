@@ -1,0 +1,31 @@
+
+extends ../../public/templates/base.jade
+
+block title
+  title Report Incident
+
+block content
+  h1 New Recipe
+  form(action="/incidents" method="POST")
+    p
+      label Victim Name
+      input(type="text" value="" name="name")
+    p
+      label Rally Location
+      input(type="text" value="" name="location")
+    p
+      label Rally Date
+      input(type="text" value="" name="date")
+    p
+      label Incident Category
+      select(name="type")
+        option(value="Verbal abuse") Verbal Abuse
+        option(value="Assault") Assault  
+    p
+      label YouTube Video ID
+      input(type="text" name="video" value="")
+    p
+      label Description of Incident
+      input(type="text" value="" name="description")
+    
+    button Submit Report

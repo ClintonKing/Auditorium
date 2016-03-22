@@ -1,0 +1,41 @@
+
+extends ../../public/templates/base.jade
+
+block title
+	title Incidents
+
+block content
+	link(rel="stylesheet" href="/css/leaflet.css")
+	script(src="/js/leaflet.js")
+
+	div.container
+		div.row.text-center
+			h1 Trump Rally Incidents
+		div.row
+			div.col-md-8.col-md-offset-2
+				div#map
+		div.row
+			if incidents.length > 0
+				for incident in incidents
+					a(href="/incidents/#{incident.name}")
+						div.col-md-3.incBlock(style="background-image: url('#{incident.img}');")
+							p.incText #{incident.type} at rally in #{incident.location} on #{incident.date}.
+			else
+				p.text-center No data available.
+		div.row
+			a(href="/incidents/form") Report an Incident
+			
+	script.
+		var map = L.map('map').setView([38, -95], 4);
+		var options = {
+		minZoom: 4,
+		maxZoom: 7,
+		opacity: 1.0,
+		tms: false,
+		zIndex: 500,
+		attribution: '',
+		};
+		L.tileLayer('http://api.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xpbnRvbmtpbmciLCJhIjoiMmJkNGNkMTQ1YmM5MWJjMTE4M2JhOGQ5YzE1MTY5YmEifQ.NO-RL4IJM1eQKpJ8ekybpA', options).addTo(map);
+	for incident in incidents
+		script.
+			var #{incident.name} = L.marker([#{incident.lat}, #{incident.long}]).addTo(map);

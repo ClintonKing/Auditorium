@@ -6,7 +6,6 @@ var db = require('./config/db');
 var incidents = require('./controllers/incidents');
 
 
-
 //connects to mongo port and specified mongo database (in this case 'test')
 db.connect('mongodb://localhost:27017/Rally', function(){
 	console.log("MongoDB connected...");

@@ -1,0 +1,35 @@
+
+extends ../../public/templates/base.jade
+
+block title
+  title #{incident.name}
+  
+block content
+  h3 #{incident.name}
+  p
+    a(href="/incidents/delete/#{incident.name}") Delete
+    
+  form(action="/incidents/#{incident.name}" method="POST")
+    p
+      label Victim Name
+      input(type="text" id="name" name="name" value="#{incident.name}")
+    p
+      label Rally Location
+      input(type="text" id="location" name="location" value="#{incident.location}")
+    p
+      label Rally Date
+      input(type="text" id="date" name="date" value="#{incident.date}")
+    p
+      label Incident Category
+      select(name="type" id="type")
+        option(value="1") Verbal Abuse
+        option(value="2") Assault
+          
+    p
+      label YouTube Video ID
+      input(type="text" name="video" id="video" value="#{incident.video}")
+    p
+      lable Description
+      input(type="text" value="#{incident.description}" name="description" id="description")
+      
+    button Update Incident

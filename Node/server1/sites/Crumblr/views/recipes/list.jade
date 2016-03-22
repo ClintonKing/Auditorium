@@ -2,18 +2,18 @@
 extends ../../public/templates/base.jade
 
 block title
-	title Recipes
+	title Incidents
 
 block content
-	h1 Recipes List
+	h1 Trump Rally Incidents
 	
-	if recipes.length > 0
+	if incidents.length > 0
 		for recipe in recipes
 				li
 					p
-						a(href="/recipes/#{recipe.name}") #{recipe.name}
+						a(href="/incidents/#{incident.name}") #{incident.name}
 	else
 		p No data available.
 	
 	
-	a(href="/recipes/form") Add a recipe
+	a(href="/incidents/form") Report an Incident
