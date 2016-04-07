@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'jade');
 
 //get template for homepage
-app.get('/', function(req, res){
-	res.render('index');
-});
+// app.get('/', function(req, res){
+// 	res.render('index');
+// });
+
+app.get('/', incidents.list);
 
 //get 'list' function from recipes.js and run on /recipes url
 app.get('/incidents', incidents.list);

@@ -5,28 +5,27 @@ block title
 	title Incidents
 
 block content
-	link(rel="stylesheet" href="/css/leaflet.css")
 	script(src="/js/leaflet.js")
 
 	div.container
-		div.row.text-center
-			h1 Trump Rally Incidents
+		//- div.row.text-center
+		//- 	h1 Trump Rally Incidents
 		div.row
-			div.col-md-8.col-md-offset-2
-				div#map
+			div#map
+		//- div.row
+		//- 	if incidents.length > 0
+		//- 		for incident in incidents
+		//- 			a(href="/incidents/#{incident.name}")
+		//- 				div.col-md-3.incBlock(style="background-image: url('#{incident.img}');")
+		//- 					p.incText #{incident.type} at rally in #{incident.location} on #{incident.date}.
+		//- 	else
+		//- 		p.text-center No data available.
 		div.row
-			if incidents.length > 0
-				for incident in incidents
-					a(href="/incidents/#{incident.name}")
-						div.col-md-3.incBlock(style="background-image: url('#{incident.img}');")
-							p.incText #{incident.type} at rally in #{incident.location} on #{incident.date}.
-			else
-				p.text-center No data available.
-		div.row
-			a(href="/incidents/form") Report an Incident
+			div.col-md-12
+				a(href="/incidents/form")#reporter.btn.btn-default Report an Incident
 			
 	script.
-		var map = L.map('map').setView([38, -95], 4);
+		var map = L.map('map').setView([39, -97], 4);
 		var options = {
 		minZoom: 4,
 		maxZoom: 7,
@@ -35,7 +34,18 @@ block content
 		zIndex: 500,
 		attribution: '',
 		};
+		
+		var donHead = L.icon({
+			iconUrl: '/img/donHead.png',
+			shadowUrl: '',
+			iconSize: [40, 50],
+			shadowSize: [0, 0],
+			iconAnchor: [30, 50],
+			shadowAnchor: [0, 0],
+			popupAnchor: [0, -50]
+		});
 		L.tileLayer('http://api.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xpbnRvbmtpbmciLCJhIjoiMmJkNGNkMTQ1YmM5MWJjMTE4M2JhOGQ5YzE1MTY5YmEifQ.NO-RL4IJM1eQKpJ8ekybpA', options).addTo(map);
 	for incident in incidents
 		script.
-			var #{incident.name} = L.marker([#{incident.lat}, #{incident.long}]).addTo(map);
+			var #{incident.name} = L.marker([#{incident.lat}, #{incident.long}], {icon: donHead}).addTo(map);
+			#{incident.name}.bindPopup("<a class='popupLink' href='/incidents/#{incident.name}'><p>#{incident.type} at rally in #{incident.location}</p> <br> <p>on #{incident.date}.</p><br><img src='#{incident.img}' class='popupImg' /></a>");

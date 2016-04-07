@@ -1,0 +1,42 @@
+body{
+  margin: 0;
+}
+
+svg{
+  padding: 20px;
+}
+
+/*AXES STYLING*/
+
+.domain{
+  fill: none;
+  stroke: #000;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+/*BAR STYLING*/
+
+.bar{
+  fill: #56A0D3;
+}
+
+.bar:hover{
+  fill: purple;
+}
+
+.barText{
+  display: none;
+  pointer-events: none;
+}
+
+
+/*CIRCLE STYLINGS*/
+
+.circleText{
+  fill: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  display: none;
+  pointer-events: none;
+}

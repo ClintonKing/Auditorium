@@ -5,6 +5,7 @@ html
     block title
       title Trump Tracker
     link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/leaflet.css")
     link(rel="stylesheet" href="/css/styles.css")
     script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
@@ -21,8 +22,8 @@ html
           a.navbar-brand(href="./") Trump Tracker
         div.navbar-collapse.collapse
           ul.nav.navbar-nav
-            li
-              a(href="/incidents") Incident Reports
+            //- li
+            //-   a(href="/incidents") Incident Reports
     div.container
       block content
     div.footer
