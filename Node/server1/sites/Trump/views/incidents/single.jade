@@ -5,31 +5,42 @@ block title
   title #{incident.name}
   
 block content
+  //This page displays a single incident and allows you to update it's information.
   h3 #{incident.name}
   p
-    a(href="/incidents/delete/#{incident.name}") Delete
+    a(href="/incidents/delete/#{incident.name}") Delete This Incident
     
   form(action="/incidents/#{incident.name}" method="POST")
     p
       label Victim Name
+      br
       input(type="text" id="name" name="name" value="#{incident.name}")
     p
       label Rally Location
+      br
       input(type="text" id="location" name="location" value="#{incident.location}")
+      br
+      input(type="text" id="lat" name="lat" value="#{incident.lat}")
+      br
+      input(type="text" id="long" name="long" value="#{incident.long}")
     p
       label Rally Date
+      br
       input(type="text" id="date" name="date" value="#{incident.date}")
     p
       label Incident Category
+      br
       select(name="type" id="type")
-        option(value="1") Verbal Abuse
-        option(value="2") Assault
+        option(value="Verbal Abuse") Verbal Abuse
+        option(value="Assault") Assault
           
     p
       label YouTube Video ID
+      br
       input(type="text" name="video" id="video" value="#{incident.video}")
     p
-      lable Description
+      label Description
+      br
       input(type="text" value="#{incident.description}" name="description" id="description")
       
     button Update Incident

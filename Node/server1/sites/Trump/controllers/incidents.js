@@ -20,6 +20,8 @@ exports.create = function(req, res){
 	collection.insert({
 			name: req.body.name,
 			location: req.body.location,
+			lat: req.body.lat,
+			long: req.body.long,
 			date: req.body.date,
 			type: req.body.type,
 			video: "https://youtu.be/" + req.body.video,
@@ -52,6 +54,8 @@ exports.update = function(req, res){
 		{$set: {
 			name: req.body.name,
 			location: req.body.location,
+			lat: req.body.lat,
+			long: req.body.long,
 			date: req.body.date,
 			type: req.body.type,
 			video: req.body.video,

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 //Our data set must be in an array for D3 to select it (can have objects in array though)
 var circleData = [
 {
@@ -56,9 +57,13 @@ circleData.forEach(function(d){
 console.log(circleData);
 
 //Set scale of axes, with domain set to max range of axis we want and range set to upper limits of svg width/height
-var axisScale = d3.scale.linear()
-  .domain([0, 500])
+var x = d3.scale.linear()
+  .domain([0, 10])
   .range([0, 500]);
+
+var y = d3.scale.linear()
+  .domain([300, 0])
+  .range([0, 300]);
 
 //Select body to prepare to append stuff
 var bodySelect = d3.select("body");
@@ -77,8 +82,12 @@ $(window).resize(function(){
 
 //Add functions to create axes on SVG grid
 var xAxis = d3.svg.axis()
-  .scale(axisScale)
+  .scale(x)
   .orient("bottom"); //Sets numbers above or below axis line
+
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left");
 
 //Make a group for our svg objects
 var circleGroup = svgSelect.append("g")
@@ -163,8 +172,9 @@ var xAxisGroup = svgSelect.append("g")
   .attr("transform", "translate(0, 300)") //Moves X axis to bottom of chart.
   .attr("class", "xAxis");
 
-
-
+var yAxisGroup = svgSelect.append("g")
+  .call(yAxis)
+  .attr("class", "xAxis");
 
 
 });

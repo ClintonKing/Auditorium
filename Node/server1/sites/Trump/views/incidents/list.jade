@@ -6,10 +6,8 @@ block title
 
 block content
 	script(src="/js/leaflet.js")
-
+//This page will conatain our map to list our rally incidents.
 	div.container
-		//- div.row.text-center
-		//- 	h1 Trump Rally Incidents
 		div.row
 			div#map
 		//- div.row
@@ -23,18 +21,20 @@ block content
 		div.row
 			div.col-md-12
 				a(href="/incidents/form")#reporter.btn.btn-default Report an Incident
-			
+	
+	//Let's setup our Leaflet map.
 	script.
 		var map = L.map('map').setView([39, -97], 4);
 		var options = {
 		minZoom: 4,
-		maxZoom: 7,
+		maxZoom: 6,
 		opacity: 1.0,
 		tms: false,
 		zIndex: 500,
 		attribution: '',
 		};
 		
+		//Here we define our Trump head icons.
 		var donHead = L.icon({
 			iconUrl: '/img/donHead.png',
 			shadowUrl: '',
@@ -43,8 +43,8 @@ block content
 			iconAnchor: [30, 50],
 			shadowAnchor: [0, 0],
 			popupAnchor: [0, -50]
-		});
-		L.tileLayer('http://api.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xpbnRvbmtpbmciLCJhIjoiMmJkNGNkMTQ1YmM5MWJjMTE4M2JhOGQ5YzE1MTY5YmEifQ.NO-RL4IJM1eQKpJ8ekybpA', options).addTo(map);
+		});	L.tileLayer('http://api.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2xpbnRvbmtpbmciLCJhIjoiMmJkNGNkMTQ1YmM5MWJjMTE4M2JhOGQ5YzE1MTY5YmEifQ.NO-RL4IJM1eQKpJ8ekybpA', options).addTo(map);
+	//For each incident in our database, lets place a marker at it's latlng and bind a popup with information pulled from the mongo document.
 	for incident in incidents
 		script.
 			var #{incident.name} = L.marker([#{incident.lat}, #{incident.long}], {icon: donHead}).addTo(map);

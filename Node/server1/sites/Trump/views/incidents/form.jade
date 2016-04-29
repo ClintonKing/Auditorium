@@ -5,27 +5,38 @@ block title
   title Report Incident
 
 block content
+  //This is the form for adding new documents to the database.
   h1 New Recipe
   form(action="/incidents" method="POST")
     p
       label Victim Name
-      input(type="text" value="" name="name")
+      br
+      input(type="text" value="" name="name" placeholder="Name")
     p
       label Rally Location
-      input(type="text" value="" name="location")
+      br
+      input(type="text" value="" name="location" placeholder="Location Name")
+      br
+      input(type="text" value="" name="lat" placeholder="Latitude")
+      br
+      input(type="text" value="" name="long" placeholder="Longitude")
     p
       label Rally Date
-      input(type="text" value="" name="date")
+      br
+      input(type="text" value="" name="date" placeholder="Date")
     p
       label Incident Category
+      br
       select(name="type")
-        option(value="Verbal abuse") Verbal Abuse
+        option(value="Verbal Abuse") Verbal Abuse
         option(value="Assault") Assault  
     p
       label YouTube Video ID
-      input(type="text" name="video" value="")
+      br
+      input(type="text" name="video" value="" placeholder="ID")
     p
       label Description of Incident
+      br
       input(type="text" value="" name="description")
     
     button Submit Report

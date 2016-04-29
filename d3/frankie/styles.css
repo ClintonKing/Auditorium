@@ -1,0 +1,24 @@
+svg{
+  margin: 0;
+  padding: 40px;
+}
+
+.axis path{
+  fill: none;
+  stroke-width: 1;
+  stroke: #000;
+}
+
+.yearBar{
+  fill: #45BF55;
+
+}
+
+.yearBar:hover{
+  fill: #044C29;
+}
+
+.barText{
+  display: none;
+  text-align: center;
+}
